@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linked Stack</title>
+</head>
+<body>
+# include <stdio.h>
+# include <malloc.h>
+
+struct Node
+{
+	int data;
+	struct Node *link;
+} *top=NULL;
+
+void push(int value);
+void pop();
+void display();
+
+void main()
+{
+	int ch,v;
+    do{
+        printf("\n....MENU...");
+        printf("\n 1.PUSH 2.POP 3.DISPLAY 4.EXIT");
+        printf("\n Enter Your Choice ");
+        scanf("%d",&ch);
+        switch (ch)
+        {
+        case 1:printf("\n Enter the element to be pushed ");
+            scanf("%d",&v);
+            push(v);
+            break;
+        case 2:pop();
+            break;
+        case 3:display();
+            break;
+        }
+    }while(ch<=3);
+}
+
+void push(int value)
+{
+    struct Node *newNode;
+    newNode=(struct Node *)malloc(sizeof(struct Node));
+    newNode->data=value;
+    if(top==NULL)
+        newNode->link=NULL;
+    else
+        newNode->link=top;
+    top=newNode;
+    
+}
+
+void pop()
+{
+    struct Node *tmp;
+    if(top==NULL)
+    {
+        printf("\n stack is empty");
+    }
+    else
+    {
+        tmp=top;
+        printf("\n Deleted element =%d",tmp->data);
+        top=tmp->link;
+        free(tmp);
+
+    }
+    
+}
+
+void display()
+{
+    struct Node *tmp;
+    if(top=NULL)
+    {
+        printf("\n Stack is empty ");
+        return;
+    }
+    else
+    {
+        tmp=top;
+
+        while(tmp!=NULL)
+        {
+            printf("%d",tmp->data);
+            tmp=tmp->link;
+            printf("->");
+        }
+        printf("NULL");
+    }
+}
+</body>
+</html>
