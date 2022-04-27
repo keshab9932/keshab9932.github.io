@@ -7,18 +7,20 @@
 </head>
 <body>
 <h1># include <stdio.h></h1>
-<h1># include <malloc.h></h1>
+<h2># include <malloc.h></h2>
 <p>
 struct Node
 {
 	int data;
 	struct Node *link;
 } *top=NULL;
-
+	</p>
+<p>
 void push(int value);
 void pop();
 void display();
-
+	</p>
+	<p>
 void main()
 {
 	int ch,v;
@@ -40,7 +42,8 @@ void main()
         }
     }while(ch<=3);
 }
-
+		  </p>
+		<p>
 void push(int value)
 {
     struct Node *newNode;
@@ -53,7 +56,8 @@ void push(int value)
     top=newNode;
     
 }
-
+	</p>
+<p>
 void pop()
 {
     struct Node *tmp;
@@ -71,7 +75,8 @@ void pop()
     }
     
 }
-
+	</p>
+	<p>
 void display()
 {
     struct Node *tmp;
